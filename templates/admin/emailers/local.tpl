@@ -36,7 +36,6 @@
 					<label for="emailer:local:password">Password</label>
 					<!-- Only after https://github.com/designcreateplay/NodeBB/commit/6f129d9c68f998c9de08618c9b56f06f6841abd7 -->
 					<input type="password" class="form-control" id="emailer:local:password" name="emailer:local:password" />
-					<!-- If you're using an older commit, use type="text". Or pulling the up-to-date version would be even better ;) -->
 				</div>
 			</div>
 			<div class="col-sm-12">
