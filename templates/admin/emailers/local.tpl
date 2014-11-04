@@ -39,6 +39,13 @@
 					<!-- If you're using an older commit, use type="text". Or pulling the up-to-date version would be even better ;) -->
 				</div>
 			</div>
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label>
+						<input type="checkbox" class="form-control" id="emailer:local:ssl" name="emailer:local:ssl" /> Use SSL
+					</label>
+				</div>
+			</div>
 		</div>
 
 		<button class="btn btn-lg btn-primary" id="save">Save</button>
