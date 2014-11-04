@@ -1,7 +1,8 @@
 nodebb-plugin-emailer-local
 ===========================
 
-NodeBB plugin for sending emails via SMTP services
+NodeBB plugin for sending emails via SMTP services<br>
+Support SSL connection - special for yandex smtp.
 
 Installation
 ---
@@ -10,7 +11,7 @@ Installation
 
 ``` bash
 cd /nodebb/install/path
-npm install git://github.com/psychobunny/nodebb-plugin-emailer-local
+npm install git://github.com/Luchnik22/nodebb-plugin-emailer-local
 ```
 
 * Then enable the plugin in NodeBB's Admin Control Panel in the Plugins tab.
@@ -21,14 +22,8 @@ Configuration
 
 * Open NodeBB's Admin Control Panel
 * Click on the Emailer (SMTP) item in the Plugins section
-* Set hostname, port, user name and password fields
+* Set hostname, port, user name and password fields and use SSL
 * Click on Settings and set the desired address to use on the Email tab.
-
-Features to add
----
-
-DKIM signatures  
-Popular services (Gmail, Hotmail, etc.)
 
 Credits
 ---
