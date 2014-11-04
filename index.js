@@ -25,8 +25,11 @@ Emailer.send = function(data) {
     var transportOptions = {
         host: Meta.config['emailer:local:host'],
         port: Meta.config['emailer:local:port'],
-        transportOptions: true
     };
+    if (Meta.config['emailer:local:ssl'] == 'true')
+    {
+        transportOptions.secureConnection = true;
+    }
     if( username || pass ) {
         transportOptions.auth = {
             user: username,
