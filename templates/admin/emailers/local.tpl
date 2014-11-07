@@ -1,4 +1,4 @@
-<h1><i class="fa fa-envelope-o"></i> Emailer (Local)</h1>
+<h1><i class="fa fa-envelope-o"></i> Emailer - SMPT</h1>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -10,38 +10,37 @@
 
 <hr />
 
-<form role="form" class="emailer-local-settings">
+<form role="form" class="smpt-settings">
 	<fieldset>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:host">Host</label>
-					<input type="text" class="form-control" id="emailer:local:host" name="emailer:local:host" />
+					<label for="host">Host</label>
+					<input type="text" class="form-control" id="host" name="host" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:port">Port</label>
-					<input type="text" class="form-control" value="25" id="emailer:local:port" name="emailer:local:port" />
+					<label for="port">Port</label>
+					<input type="text" class="form-control" value="25" id="port" name="port" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:username">User</label>
-					<input type="text" class="form-control" id="emailer:local:username" name="emailer:local:username" />
+					<label for="username">User</label>
+					<input type="text" class="form-control" id="username" name="username" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:password">Password</label>
-					<!-- Only after https://github.com/designcreateplay/NodeBB/commit/6f129d9c68f998c9de08618c9b56f06f6841abd7 -->
-					<input type="password" class="form-control" id="emailer:local:password" name="emailer:local:password" />
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" name="password" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label>
-						<input type="checkbox" class="form-control" id="emailer:local:ssl" name="emailer:local:ssl" /> Use SSL
+						<input type="checkbox" class="form-control" id="ssl" name="ssl" /> Use SSL
 					</label>
 				</div>
 			</div>
@@ -52,13 +51,16 @@
 </form>
 
 <script type="text/javascript">
-	require(['settings'], function(Settings) {
-		Settings.load('emailer-local', $('.emailer-local-settings'));
-
-		$('#save').on('click', function() {
-			Settings.save('emailer-local', $('.emailer-local-settings'), function() {
+	require(['settings'], function(settings) {
+	  
+	  var wrapper = $('.smpt-settings');
+		settings.load('smpt-settings', wrapper);
+    
+    $('#save').click(function(event) {
+        event.preventDefault();
+        settings.persist('smpt-settings', $('.smpt-settings'), function() {
 				app.alert({
-					alert_id: 'emailer-local',
+					alert_id: 'smpt-settings',
 					type: 'info',
 					title: 'Settings Changed',
 					message: 'Please reload your NodeBB to apply these changes',
@@ -68,6 +70,6 @@
 					}
 				});
 			});
-		});
+    });
 	});
 </script>
