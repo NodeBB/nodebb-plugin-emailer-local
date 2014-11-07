@@ -3,10 +3,16 @@ var fs = require('fs'),
 
     winston = module.parent.require('winston'),
     settings = module.parent.require('./settings'),
-
+    socketAdmin = module.parent.require('./socket.io/admin'),
+    
     nodemailer = require('nodemailer'),
+    appSettings = new Settings('smpt-server'),
     Emailer = {};
 
+var SocketAdmin = module.parent.require('./socket.io/admin');
+SocketAdmin.settings.smptserver = function() {
+    appSettings.sync();
+};
 
 Emailer.init = function(app, middleware, controllers, callback) {
     function renderAdminPage(req, res, next) {
@@ -20,7 +26,6 @@ Emailer.init = function(app, middleware, controllers, callback) {
 };
 
 Emailer.send = function(data) {
-    var appSettings = new Settings('smpt-server');
     var username = appSettings.get('username');
     var pass = appSettings.get('password');
     var transportOptions = {
@@ -60,11 +65,10 @@ Emailer.admin = {
         custom_header.plugins.push({
             "route": '/emailers/local',
             "icon": 'fa-envelope-o',
-            "name": 'Emailer (Local)'
+            "name": 'EmailerSMPT'
         });
 
         callback(null, custom_header);
     }
 };
-
-module.exports = Emailer;
+//module.exports = Emailer;
