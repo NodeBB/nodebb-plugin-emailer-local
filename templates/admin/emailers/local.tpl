@@ -58,7 +58,7 @@
 		$('#save').click(function(event) {
 		    event.preventDefault();
 		    settings.persist('smpt-settings', wrapper, function() {
-		        socket.emit('admin.settings.smpt-settings');
+		        socket.emit('admin.settings.smptserver');
 		    });
 		});
 	});
