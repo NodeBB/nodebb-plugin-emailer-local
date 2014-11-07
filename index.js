@@ -20,7 +20,7 @@ Emailer.init = function(app, middleware, controllers, callback) {
 };
 
 Emailer.send = function(data) {
-	var appSettings = new Settings('myPlugin');
+    var appSettings = new Settings('smpt-server');
     var username = appSettings.get('username');
     var pass = appSettings.get('password');
     var transportOptions = {
