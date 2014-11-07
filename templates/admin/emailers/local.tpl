@@ -52,24 +52,14 @@
 
 <script type="text/javascript">
 	require(['settings'], function(settings) {
-	  
-	  var wrapper = $('.smpt-settings');
-		settings.load('smpt-settings', wrapper);
-    
-    $('#save').click(function(event) {
-        event.preventDefault();
-        settings.persist('smpt-settings', $('.smpt-settings'), function() {
-				app.alert({
-					alert_id: 'smpt-settings',
-					type: 'info',
-					title: 'Settings Changed',
-					message: 'Please reload your NodeBB to apply these changes',
-					timeout: 5000,
-					clickfn: function() {
-						socket.emit('admin.reload');
-					}
-				});
-			});
-    });
+		var wrapper = $('.smpt-settings');
+		settings.sync('smpt-settings', wrapper);
+		
+		$('#save').click(function(event) {
+		    event.preventDefault();
+		    settings.persist('smpt-settings', wrapper, function() {
+		        socket.emit('admin.settings.smpt-settings');
+		    });
+		});
 	});
 </script>
