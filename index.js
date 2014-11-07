@@ -6,7 +6,7 @@ var fs = require('fs'),
     socketAdmin = module.parent.require('./socket.io/admin'),
     
     nodemailer = require('nodemailer'),
-    appSettings = new Settings('smpt-server'),
+    appSettings = new settings('smpt-server'),
     Emailer = {};
 
 var SocketAdmin = module.parent.require('./socket.io/admin');
