@@ -2,7 +2,7 @@ var fs = require('fs'),
     path = require('path'),
 
     winston = module.parent.require('winston'),
-    Meta = module.parent.require('./meta'),
+    settings = module.parent.require('./settings'),
 
     nodemailer = require('nodemailer'),
     Emailer = {};
@@ -20,13 +20,14 @@ Emailer.init = function(app, middleware, controllers, callback) {
 };
 
 Emailer.send = function(data) {
-    var username = Meta.config['emailer:local:username'];
-    var pass = Meta.config['emailer:local:password'];
+	var appSettings = new Settings('myPlugin');
+    var username = appSettings.get('username');
+    var pass = appSettings.get('password');
     var transportOptions = {
-        host: Meta.config['emailer:local:host'],
-        port: Meta.config['emailer:local:port'],
+        host: appSettings.get('host'),
+        port: appSettings.get('port'),
     };
-    if (Meta.config['emailer:local:ssl'] == 'on')
+    if (appSettings.get('ssl') == 'on')
     {
         transportOptions.secureConnection = true;
     }
