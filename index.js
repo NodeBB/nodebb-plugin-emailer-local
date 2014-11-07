@@ -9,11 +9,6 @@ var fs = require('fs'),
     appSettings = new settings('smpt-server'),
     Emailer = {};
 
-var SocketAdmin = module.parent.require('./socket.io/admin');
-SocketAdmin.settings.smptserver = function() {
-    appSettings.sync();
-};
-
 Emailer.init = function(app, middleware, controllers, callback) {
     function renderAdminPage(req, res, next) {
         res.render('admin/emailers/local', {});
