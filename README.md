@@ -39,3 +39,5 @@ Credits
 
 **Original author**: [Alfred Dobradi](https://github.com/AlfredDobradi)<br>
 **Last version author**: [Loutchansky Oleg](https://github.com/Luchnik22/)
+
+The NodeBB team is currently taking care of maintenance upgrades for this plugin (compatibility between versions). If anybody wishes to become the core maintainer of this plugin and add new features, please give us a shout on this plugin's thread on our community. :)
