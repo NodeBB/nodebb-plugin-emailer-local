@@ -22,12 +22,20 @@ Configuration
 
 * Open NodeBB's Admin Control Panel
 * Click on the Emailer (SMTP) item in the Plugins section
-* Set hostname, port, user name and password fields and use SSL
+* Set hostname, port, SSL, user name, from and password fields
 * Click on Settings and set the desired address to use on the Email tab.
+
+Example configuration for Yandex SMTP
+---
+* Adress: smtp.yandex.ru
+* Port: 465
+* User: example@example.com
+* Password: *******
+* From address: Example Example <example@example.com>
+* Use SSL: On
 
 Credits
 ---
 
-**Original Author**: [AlfredDobradi](https://github.com/AlfredDobradi)
-
-The NodeBB team is currently taking care of maintenance upgrades for this plugin (compatibility between versions). If anybody wishes to become the core maintainer of this plugin and add new features, please give us a shout on this plugin's [thread](https://community.nodebb.org/topic/496/-nodebb-plugin-emailer-local-local-email-plugin) on our community. :)
+**Original author**: [Alfred Dobradi](https://github.com/AlfredDobradi)<br>
+**Last version author**: [Loutchansky Oleg](https://github.com/Luchnik22/)
