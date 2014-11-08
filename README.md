@@ -2,7 +2,7 @@ nodebb-plugin-emailer-local
 ===========================
 
 NodeBB plugin for sending emails via SMTP services<br>
-Support SSL connection - special for yandex smtp.
+Support SSL connection
 
 Installation
 ---
