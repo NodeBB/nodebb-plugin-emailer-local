@@ -22,7 +22,7 @@ Emailer.init = function(app, middleware, controllers, callback) {
 Emailer.send = function(data) {
 	var username = appSettings.cfg.username;
 	var pass = appSettings.cfg.password;
-	var from = appSettings.cfg.from;
+	var from = appSettings.cfg.from || data.from;
 	var transportOptions = {
 		host: appSettings.cfg.host,
 		port: appSettings.cfg.port,
