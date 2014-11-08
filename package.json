@@ -1,6 +1,6 @@
 {
     "name": "nodebb-plugin-emailer-local",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "NodeBB plugin to send emails via an SMTP service",
     "keywords": [
         "nodebb",
@@ -10,8 +10,8 @@
     ],
     "homepage": "https://github.com/NodeBB/nodebb-plugin-emailer-local",
     "bugs": {
-        "url": "http://github.com/NodeBB/nodebb-plugin-emailer-local/issues",
-        "email": "alfred@brvy.me"
+        "url": "https://github.com/Luchnik22/nodebb-plugin-emailer-local/issues",
+        "email": "oleg@loutchansky.com"
     },
     "license": "MIT",
     "author": {
@@ -26,6 +26,6 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/NodeBB/nodebb-plugin-emailer-local.git"
+        "url": "https://github.com/Luchnik22/nodebb-plugin-emailer-local.git"
     }
 }
