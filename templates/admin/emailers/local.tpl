@@ -1,4 +1,4 @@
-<h1><i class="fa fa-envelope-o"></i> Emailer - SMPT</h1>
+<h1><i class="fa fa-envelope-o"></i> Emailer - SMTP</h1>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -10,7 +10,7 @@
 
 <hr />
 
-<form role="form" class="smpt-settings">
+<form role="form" class="SMTP-settings">
 	<fieldset>
 		<div class="row">
 			<div class="col-sm-12">
@@ -39,6 +39,12 @@
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
+					<label for="from">From address</label>
+					<input type="from" class="form-control" id="from" name="from" />
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-group">
 					<label>
 						<input type="checkbox" class="form-control" id="ssl" name="ssl" /> Use SSL
 					</label>
@@ -51,15 +57,23 @@
 </form>
 
 <script type="text/javascript">
-	require(['settings'], function(settings) {
-		var wrapper = $('.smpt-settings');
-		settings.sync('smpt-settings', wrapper);
+	require(['settings'], function(Settings) {
+		var wrapper = $('.SMTP-settings');
+
+		Settings.load('SMTP-settings', wrapper);
 		
 		$('#save').click(function(event) {
-		    event.preventDefault();
-		    settings.persist('smpt-settings', wrapper, function() {
-		        socket.emit('admin.settings.smptserver');
-		    });
+			Settings.save('SMTP-settings', wrapper, function() {
+				app.alert({
+					type: 'success',
+					alert_id: 'SMTP-settings',
+					title: 'Reload Required',
+					message: 'Please reload your NodeBB to have your changes take effect',
+					clickfn: function() {
+						socket.emit('admin.reload');
+					}
+				})
+			});
 		});
 	});
 </script>
