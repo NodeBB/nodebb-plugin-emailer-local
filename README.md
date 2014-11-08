@@ -31,7 +31,7 @@ Example configuration for Yandex SMTP
 * Port: 465
 * User: example@example.com
 * Password: *******
-* From address: Example Example <example@example.com>
+* From address: Example Example \<example@example.com\>
 * Use SSL: On
 
 Credits
