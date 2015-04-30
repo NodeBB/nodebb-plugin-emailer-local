@@ -20,33 +20,41 @@ Emailer.init = function(data, callback) {
 };
 
 Emailer.send = function(data) {
-    var username = Meta.config['emailer:local:username'];
-    var pass = Meta.config['emailer:local:password'];
-    var transportOptions = {
-        host: Meta.config['emailer:local:host'],
-        port: Meta.config['emailer:local:port']
-    };
-    if( username || pass ) {
-        transportOptions.auth = {
-            user: username,
-            pass: pass
-        };
-    }
-    var transport = nodemailer.createTransport('SMTP', transportOptions);
 
-    transport.sendMail({
-        from: data.from,
-        to: data.to,
-        html: data.html,
-        text: data.plaintext,
-        subject: data.subject
-    },function(err,response) {
-        if ( !err ) {
-            winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid);
-        } else {
-            winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + '!!');
-            // winston.error('[emailer.smtp] ' + response.message);
+    Meta.settings.get('emailer-local', function(err, settings) {
+
+        if (err) {
+            return winston.error('[emailer.smtp] No settings: ' + err);
         }
+
+        var username = settings['emailer:local:username'];
+        var pass = settings['emailer:local:password'];
+        var transportOptions = {
+            host: settings['emailer:local:host'],
+            port: settings['emailer:local:port']
+        };
+        if( username || pass ) {
+            transportOptions.auth = {
+                user: username,
+                pass: pass
+            };
+        }
+
+        var transport = nodemailer.createTransport('SMTP', transportOptions);
+
+        transport.sendMail({
+            from: data.from,
+            to: data.to,
+            html: data.html,
+            text: data.plaintext,
+            subject: data.subject
+        },function(err,response) {
+            if ( !err ) {
+                winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid + ': ' + JSON.stringify(response));
+            } else {
+                winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + ': ' + JSON.stringify(response));
+            }
+        });
     });
 }
 
