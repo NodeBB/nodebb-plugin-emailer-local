@@ -37,6 +37,14 @@
 					<input type="password" class="form-control" id="emailer:local:password" name="emailer:local:password" />
 				</div>
 			</div>
+			<div class="col-sm-12">
+				<div class="form-group">
+					 <label>
+                        <input type="checkbox" id="emailer:local:secure" name="emailer:local:secure"/>
+                        Enable secure connection
+                      </label>
+				</div>
+			</div>
 		</div>
 
 		<button class="btn btn-lg btn-primary" id="save">Save</button>

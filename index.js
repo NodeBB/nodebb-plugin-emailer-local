@@ -20,34 +20,38 @@ Emailer.init = function(data, callback) {
 };
 
 Emailer.send = function(data) {
-    var username = Meta.config['emailer:local:username'];
-    var pass = Meta.config['emailer:local:password'];
-    var transportOptions = {
-        host: Meta.config['emailer:local:host'],
-        port: Meta.config['emailer:local:port']
-    };
-    if( username || pass ) {
-        transportOptions.auth = {
-            user: username,
-            pass: pass
-        };
-    }
-    var transport = nodemailer.createTransport('SMTP', transportOptions);
+	Meta.settings.get('emailer-local', function(err, options){
+		var username = options['emailer:local:username'];
+		var pass = options['emailer:local:password'];
+		var transportOptions = {
+			host: options['emailer:local:host'],
+			port: options['emailer:local:port'],
+			secureConnection: (options['emailer:local:secure'] === 'on')
+		};
+		if( username || pass ) {
+			transportOptions.auth = {
+				user: username,
+				pass: pass
+			};
+		}
+		var transport = nodemailer.createTransport('SMTP', transportOptions);
+		transport.sendMail({
+			from: data.from,
+			to: data.to,
+			html: data.html,
+			text: data.plaintext,
+			subject: data.subject
+		},function(err,response) {
+			console.log(err);
+			if ( !err ) {
+				winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid);
+			} else {
+				winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + '!!');
+				// winston.error('[emailer.smtp] ' + response.message);
+			}
+		});
+	});
 
-    transport.sendMail({
-        from: data.from,
-        to: data.to,
-        html: data.html,
-        text: data.plaintext,
-        subject: data.subject
-    },function(err,response) {
-        if ( !err ) {
-            winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid);
-        } else {
-            winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + '!!');
-            // winston.error('[emailer.smtp] ' + response.message);
-        }
-    });
 }
 
 Emailer.admin = {
