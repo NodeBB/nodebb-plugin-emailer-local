@@ -50,7 +50,7 @@ Emailer.send = function(data) {
             subject: data.subject
         },function(err,response) {
             if ( !err ) {
-                winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid + ': ' + JSON.stringify(response));
+                // winston.info('[emailer.smtp] Sent `' + data.template + '` email to uid ' + data.uid + ': ' + JSON.stringify(response));
             } else {
                 winston.warn('[emailer.smtp] Unable to send `' + data.template + '` email to uid ' + data.uid + ': ' + JSON.stringify(response));
             }
