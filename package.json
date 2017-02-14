@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-emailer-local",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "NodeBB plugin to send emails via an SMTP service",
   "keywords": [
     "nodebb",
