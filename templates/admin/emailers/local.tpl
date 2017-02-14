@@ -15,39 +15,39 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:host">Host</label>
-					<input type="text" class="form-control" id="emailer:local:host" name="emailer:local:host" />
+					<label for="host">Host</label>
+					<input type="text" class="form-control" id="host" name="host" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:port">Port</label>
-					<input type="text" class="form-control" value="25" id="emailer:local:port" name="emailer:local:port" />
+					<label for="port">Port</label>
+					<input type="text" class="form-control" value="25" id="port" name="port" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:username">User</label>
-					<input type="text" class="form-control" id="emailer:local:username" name="emailer:local:username" />
+					<label for="username">User</label>
+					<input type="text" class="form-control" id="username" name="username" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="emailer:local:password">Password</label>
-					<input type="password" class="form-control" id="emailer:local:password" name="emailer:local:password" />
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" name="password" />
 				</div>
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label>
-						<input type="checkbox" id="emailer:local:secure" name="emailer:local:secure"/>
+						<input type="checkbox" id="secure" name="secure"/>
 						 Enable secure connection
 					</label>
 				</div>
 			</div>
 		</div>
 
-		<button class="btn btn-lg btn-primary" id="save">Save</button>
+		<button type="button" class="btn btn-lg btn-primary" id="save">Save</button>
 	</fieldset>
 </form>
 

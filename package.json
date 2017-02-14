@@ -10,8 +10,7 @@
   ],
   "homepage": "https://github.com/NodeBB/nodebb-plugin-emailer-local",
   "bugs": {
-    "url": "http://github.com/NodeBB/nodebb-plugin-emailer-local/issues",
-    "email": "alfred@brvy.me"
+    "url": "http://github.com/NodeBB/nodebb-plugin-emailer-local/issues"
   },
   "license": "MIT",
   "author": {
@@ -20,7 +19,7 @@
     "url": "http://blog.brvy.me"
   },
   "dependencies": {
-    "nodemailer": "~0.6.0",
+    "nodemailer": "^3.1.0",
     "path": "~0.4.9"
   },
   "main": "index.js",

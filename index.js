@@ -29,20 +29,21 @@ Emailer.init = function(data, callback) {
 
 Emailer.send = function(data, callback) {
 
-    var username = settings['emailer:local:username'];
-    var pass = settings['emailer:local:password'];
+    var username = settings['username'];
+    var pass = settings['password'];
     var transportOptions = {
-        host: settings['emailer:local:host'],
-        port: settings['emailer:local:port'],
-        secureConnection: settings['emailer:local:secure'] === 'on'
+        host: settings['host'],
+        port: parseInt(settings['port'], 10),
+        secure: settings['secure'] === 'on'
     };
     if( username || pass ) {
+        // transportOptions.authMethod = 'LOGIN';
         transportOptions.auth = {
             user: username,
             pass: pass
         };
     }
-    var transport = nodemailer.createTransport('SMTP', transportOptions);
+    var transport = nodemailer.createTransport(transportOptions);
 
     transport.sendMail({
         from: data.from,
