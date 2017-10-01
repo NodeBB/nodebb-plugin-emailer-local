@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<blockquote>
-			This plugin lets NodeBB send emails via an SMTP interface.
+			This plugin lets NodeBB send emails via an SMTP interface. Leave user and/or password empty if no authentication is required.
 		</blockquote>
 	</div>
 </div>
