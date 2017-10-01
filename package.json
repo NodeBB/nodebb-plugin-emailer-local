@@ -19,7 +19,7 @@
     "url": "http://blog.brvy.me"
   },
   "dependencies": {
-    "nodemailer": "^3.1.0",
+    "nodemailer": "^4.1.0",
     "path": "~0.4.9"
   },
   "main": "index.js",
@@ -28,6 +28,6 @@
     "url": "https://github.com/NodeBB/nodebb-plugin-emailer-local.git"
   },
   "nbbpm": {
-    "compatibility": "^0.6.0"
+    "compatibility": "^1.6.0"
   }
 }
