@@ -39,10 +39,12 @@
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label>
-						<input type="checkbox" id="secure" name="secure"/>
-						 Enable secure connection
-					</label>
+					<label>Connection security</label>
+					<select name="security" class="form-control">
+						<option value="NONE">None</option>
+						<option value="STARTTLS">STARTTLS</option>
+						<option value="ENCRYPTED">Encrypted</option>
+					</select>
 				</div>
 			</div>
 		</div>

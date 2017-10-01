@@ -31,11 +31,38 @@ Emailer.send = function(data, callback) {
 
     var username = settings['username'];
     var pass = settings['password'];
+
+    var isSecure = true;
+    var requireTls = true;
+    var ignoreTls = false;
+
+    switch(settings['security']) {
+        case 'NONE':
+            isSecure = false;
+            requireTls = false;
+            ignoreTls = true;
+            break;
+        case 'STARTTLS':
+            isSecure = false;
+            requireTls = true;
+            ignoreTls = false;
+            break;
+        default:
+        case 'ENCRYPTED':
+            isSecure = true;
+            requireTls = true;
+            ignoreTls = false;
+            break;
+    }
+
     var transportOptions = {
         host: settings['host'],
         port: parseInt(settings['port'], 10),
-        secure: settings['secure'] === 'on'
+        secure: isSecure,
+        ignoreTLS: ignoreTls,
+        requireTLS: requireTls
     };
+
     if( username || pass ) {
         // transportOptions.authMethod = 'LOGIN';
         transportOptions.auth = {
