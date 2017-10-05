@@ -1,6 +1,8 @@
 nodebb-plugin-emailer-local
 ===========================
 
+**Deprecation Notice: The functionality of this plugin has been integrated into the NodeBB core. In the Email settings enable `Use external email server to send emails` and then choose `Custom Service`.**
+
 NodeBB plugin for sending emails via SMTP services
 
 Installation
